@@ -109,6 +109,21 @@ hello-app$ python -m pytest tests/unit -v
 hello-app$ AWS_SAM_STACK_NAME=<stack-name> python -m pytest tests/integration -v
 ```
 
+## Pipeline
+
+AWS Codepipeline created for this application by following the steps in below documentation
+
+[Generating starter pipeline for AWS CodePipeline](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-generating-example-ci-cd-codepipeline.html)
+
+``` 
+sam pipeline bootstrap
+
+sam pipeline init
+
+sam deploy -t codepipeline.yaml --stack-name <pipeline-stack-name> --capabilities=CAPABILITY_IAM --region <region-X>
+
+```
+
 ## Cleanup
 
 To delete the sample application that you created, use the AWS CLI. Assuming you used your project name for the stack name, you can run the following:
@@ -122,3 +137,4 @@ aws cloudformation delete-stack --stack-name hello-app
 See the [AWS SAM developer guide](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html) for an introduction to SAM specification, the SAM CLI, and serverless application concepts.
 
 Next, you can use AWS Serverless Application Repository to deploy ready to use Apps that go beyond hello world samples and learn how authors developed their applications: [AWS Serverless Application Repository main page](https://aws.amazon.com/serverless/serverlessrepo/)
+
